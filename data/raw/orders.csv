@@ -1,0 +1,7 @@
+order_id,customer_id,order_date,product_name,quantity,unit_price,order_status,payment_method,updated_at
+ORD-10001,CUST-1001,2026-11-01 11:00:00,Wireless Mouse,2,29.99,delivered,card,2026-11-01 11:05:00
+ORD-10002,CUST-1002,2026-11-01 11:15:00,Mechanical Keyboard,1,119.50,delivered,upi,2026-11-01 11:20:00
+ORD-10003,CUST-1003,2026-11-01 11:30:00,USB-C Hub,3,45.00,pending,cash,2026-11-01 11:35:00
+ORD-10004,CUST-1004,2026-11-01 11:45:00,4K Monitor,1,349.99,shipped,netbanking,2026-11-01 11:50:00
+ORD-10005,CUST-1005,2026-11-01 12:00:00,Ergonomic Chair,1,289.00,delivered,card,2026-11-01 12:05:00
+ORD-99999,CUST-8888,2026-11-01 12:15:00,Phantom Item,-2,50.00,invalid_status,bitcoin,2026-11-01 12:20:00

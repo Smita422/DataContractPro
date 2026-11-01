@@ -1,0 +1,79 @@
+dataset: "orders"
+version: "1.0.0"
+owner: "checkout-fulfillment-team"
+domain: "ecommerce"
+compatibility_mode: "BACKWARD"
+description: "Data contract for customer checkout orders"
+
+columns:
+  - name: "order_id"
+    type: "string"
+    nullable: false
+    primary_key: true
+    description: "Unique order identifier"
+    constraints:
+      pattern: "^ORD-[0-9]{5,}$"
+
+  - name: "customer_id"
+    type: "string"
+    nullable: false
+    description: "Foreign key reference to customer"
+    constraints:
+      pattern: "^CUST-[0-9]{4,}$"
+
+  - name: "order_date"
+    type: "timestamp"
+    nullable: false
+    description: "Timestamp when the order was placed"
+
+  - name: "product_name"
+    type: "string"
+    nullable: false
+    description: "Purchased product description"
+    constraints:
+      min_length: 1
+      max_length: 200
+
+  - name: "quantity"
+    type: "integer"
+    nullable: false
+    description: "Number of units ordered"
+    constraints:
+      min: 1
+      max: 10000
+
+  - name: "unit_price"
+    type: "float"
+    nullable: false
+    description: "Unit sale price in currency"
+    constraints:
+      min: 0.0
+      max: 100000.00
+
+  - name: "order_status"
+    type: "string"
+    nullable: false
+    description: "Current order processing state"
+    constraints:
+      allowed_values: ["pending", "shipped", "delivered", "cancelled"]
+
+  - name: "payment_method"
+    type: "string"
+    nullable: false
+    description: "Payment channel used"
+    constraints:
+      allowed_values: ["card", "upi", "cash", "netbanking"]
+
+  - name: "updated_at"
+    type: "timestamp"
+    nullable: false
+    description: "Last modification timestamp"
+
+derived_fields:
+  - name: "total_amount"
+    type: "float"
+    expression: "quantity * unit_price"
+    description: "Calculated gross amount"
+
+sla:
+  max_quarantine_percent: 5.0

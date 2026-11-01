@@ -1,0 +1,51 @@
+dataset: "customers"
+version: "1.0.0"
+owner: "customer-platform-team"
+domain: "ecommerce"
+compatibility_mode: "BACKWARD"
+description: "Data contract for customer profiles and account statuses"
+
+columns:
+  - name: "customer_id"
+    type: "string"
+    nullable: false
+    primary_key: true
+    description: "Unique customer identifier"
+    constraints:
+      pattern: "^CUST-[0-9]{4,}$"
+
+  - name: "customer_name"
+    type: "string"
+    nullable: false
+    description: "Full customer name"
+    constraints:
+      min_length: 2
+      max_length: 100
+
+  - name: "email"
+    type: "string"
+    nullable: false
+    unique: true
+    description: "Primary contact email address"
+    constraints:
+      pattern: "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$"
+
+  - name: "city"
+    type: "string"
+    nullable: true
+    description: "Customer billing or residential city"
+
+  - name: "customer_status"
+    type: "string"
+    nullable: false
+    description: "Lifecycle status of customer"
+    constraints:
+      allowed_values: ["active", "inactive"]
+
+  - name: "created_at"
+    type: "timestamp"
+    nullable: false
+    description: "Account creation timestamp"
+
+sla:
+  max_quarantine_percent: 5.0

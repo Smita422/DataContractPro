@@ -1,0 +1,7 @@
+customer_id,customer_name,email,city,customer_status,created_at
+CUST-1001,John Doe,john.doe@example.com,New York,active,2026-11-01 08:30:00
+CUST-1002,Jane Smith,jane.smith@example.com,San Francisco,active,2026-11-01 09:15:00
+CUST-1003,Robert Brown,robert.b@example.com,Chicago,inactive,2026-11-01 09:45:00
+CUST-1004,Emily Davis,emily.d@example.com,Austin,active,2026-11-01 10:00:00
+CUST-1005,Michael Wilson,michael.w@example.com,Seattle,inactive,2026-11-01 10:15:00
+CUST-9999,Corrupt Record,invalid-email-address,Miami,suspended,2026-11-01 10:30:00
